@@ -1,10 +1,18 @@
-package Templates;
+package com.example.demo.Templates;
 
 public class NotificationTemplate {
     Language language;
     private String body;
     private String subject;
     private int ID;
+
+    public Language getLanguage(){
+        return language;
+    }
+
+    public void setLanguage(Language language){
+        this.language=language;
+    }
 
     public String getBody() {
         return body;
@@ -28,5 +36,9 @@ public class NotificationTemplate {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public String toString(){
+        return '\"'+this.body+'\"'+','+'\"'+this.subject+'\"'+','+this.getID()+','+'\"'+this.language+'\"';
     }
 }

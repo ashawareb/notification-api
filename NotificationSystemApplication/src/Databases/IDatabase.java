@@ -1,9 +1,9 @@
-package Databases;
+package com.example.demo.Databases;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public interface IDatabase {
     public Connection connectToDatabase() throws SQLException;
 
-    public boolean executeQuery(String query, Connection connection) throws SQLException;
 }

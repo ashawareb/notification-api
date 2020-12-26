@@ -1,17 +1,16 @@
-package Operations;
+package com.example.demo.Operations;
 
-import Templates.NotificationTemplate;
+import com.example.demo.Templates.NotificationTemplate;
+
+import java.sql.SQLException;
 
 public interface CRUD {
-    public boolean create(NotificationTemplate notification);
+    public boolean create(NotificationTemplate notification) throws SQLException;
 
-    public NotificationTemplate read(int id);
+    public NotificationTemplate read(int id) throws SQLException;
 
-    public boolean update(int id, NotificationTemplate notification);
+    public boolean update(int id, NotificationTemplate notification) throws SQLException;
 
-    public boolean delete(int id);
-
-    public NotificationTemplate search(int id);
-
+    public boolean delete(int id) throws SQLException;
 
 }
