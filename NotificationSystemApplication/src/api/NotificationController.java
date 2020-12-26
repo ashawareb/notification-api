@@ -35,7 +35,8 @@ public class NotificationController implements CRUD {
     }
 
     @Override
-    public boolean delete(int id) throws SQLException {
-        return false;
+    @DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable(value = "id")int id) throws SQLException {
+        return crud.delete(id);
     }
 }
