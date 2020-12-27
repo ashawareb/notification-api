@@ -10,19 +10,19 @@ ALTER TABLE Notification_Templates
     ADD language VARCHAR(100) NOT NULL;
 -- _________________________________
 create table sms(
-    sender varchar(255),
-    receiver varchar(255),
-    subject varchar(255),
     body varchar(255),
+	subject varchar(255),
+	id int not null,
     language varchar(255),
-    id int not null,
+	sender varchar(255),
+    receiver varchar(255),
     status boolean);
 --_________________________________
 create table mail(
-    sender varchar(255),
-    receiver varchar(255),
-    subject varchar(255),
     body varchar(255),
+	subject varchar(255),
+	id int not null,
     language varchar(255),
-    id int not null,
+	sender varchar(255),
+    receiver varchar(255),
     status boolean);
