@@ -17,18 +17,7 @@ public class MySQLDatabase implements IDatabase, CRUD {
     }
 
 
-    
 
-    @Override
-    public Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/Notification_System";
-        String user = "root";
-        String password = "Emadtarek563";
-        Connection connection = null;
-        connection = DriverManager.getConnection(url, user, password);
-
-        return connection;
-    }
 
 
     @Override
