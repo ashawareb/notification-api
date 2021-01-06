@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 
@@ -39,4 +40,18 @@ public class NotificationController implements CRUD {
     public boolean delete(@PathVariable(value = "id")int id) throws SQLException {
         return crud.delete(id);
     }
+
+    @PostMapping("/send/{id}")
+    public boolean send(@PathVariable(value = "id")int id,@RequestBody ArrayList<String> placeHolders) throws SQLException {
+        /*
+            bellow lines for testing only !
+        * */
+        System.out.println("id = "+id);
+        for(int i=0;i<placeHolders.size();i++)
+            System.out.println(placeHolders.get(i));
+        
+        // Call omar's function :)
+        return true;
+    }
+
 }
