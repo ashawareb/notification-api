@@ -4,13 +4,7 @@ public class NotificationTemplate {
     Language language;
     private String body;
     private String subject;
-    private static int count = 0;
     private int ID;
-
-    public NotificationTemplate() {
-        count++;
-        this.ID = count;
-    }
 
     public Language getLanguage() {
         return language;
@@ -45,6 +39,6 @@ public class NotificationTemplate {
     }
 
     public String toString() {
-        return '\"' + this.body + '\"' + ',' + '\"' + this.subject + '\"' + ',' + this.getID() + ',' + '\"' + this.language + '\"';
+        return '\"' + this.body + '\"' + ',' + '\"' + this.subject + '\"' + ',' + '\"' + this.language + '\"';
     }
 }

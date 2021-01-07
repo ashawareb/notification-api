@@ -33,7 +33,8 @@ public class MySQLDatabase implements IDatabase, CRUD {
             }
         }*/
         String insertStr = notification.toString();
-        String sql = "INSERT INTO Notification_Templates(subject, body, id, language) VALUES(" + insertStr + ")";
+        String sql = "INSERT INTO Notification_Templates(subject, body, language) VALUES(" + insertStr + ")";
+        System.out.println(insertStr+"\n"+sql);
         int check2 = stmt.executeUpdate(sql);
         return check2 > 0;
     }

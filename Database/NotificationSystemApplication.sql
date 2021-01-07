@@ -3,11 +3,13 @@ CREATE DATABASE Notification_System;
 CREATE TABLE Notification_Templates(
 	subject VARCHAR(100) NOT NULL,
 	body VARCHAR(500) NOT NULL,
-	id INT NOT NULL UNIQUE
+	id INT NOT NULL auto_increment key
 );
 -- _________________________________
 ALTER TABLE Notification_Templates
     ADD language VARCHAR(100) NOT NULL;
+-- _________________________________
+ALTER TABLE notification_templetes AUTO_INCREMENT=1;
 -- _________________________________
 create table sms(
     body varchar(255),
