@@ -39,6 +39,6 @@ public class NotificationTemplate {
     }
 
     public String toString() {
-        return '\"' + this.body + '\"' + ',' + '\"' + this.subject + '\"' + ',' + '\"' + this.language + '\"';
+        return '\"' + this.subject + '\"' + ',' + '\"' + this.body + '\"' + ',' + '\"' + this.language + '\"';
     }
 }
