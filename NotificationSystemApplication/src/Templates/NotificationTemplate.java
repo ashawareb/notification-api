@@ -4,14 +4,20 @@ public class NotificationTemplate {
     Language language;
     private String body;
     private String subject;
+    private static int count = 0;
     private int ID;
 
-    public Language getLanguage(){
+    public NotificationTemplate() {
+        count++;
+        this.ID = count;
+    }
+
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(Language language){
-        this.language=language;
+    public void setLanguage(Language language) {
+        this.language = language;
     }
 
     public String getBody() {
@@ -38,7 +44,7 @@ public class NotificationTemplate {
         this.ID = ID;
     }
 
-    public String toString(){
-        return '\"'+this.body+'\"'+','+'\"'+this.subject+'\"'+','+this.getID()+','+'\"'+this.language+'\"';
+    public String toString() {
+        return '\"' + this.body + '\"' + ',' + '\"' + this.subject + '\"' + ',' + this.getID() + ',' + '\"' + this.language + '\"';
     }
 }

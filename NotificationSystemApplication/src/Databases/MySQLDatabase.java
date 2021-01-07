@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
+import java.util.ArrayList;
+
 @Component
 @Qualifier("CRUD")
 public class MySQLDatabase implements IDatabase, CRUD {
@@ -17,15 +19,11 @@ public class MySQLDatabase implements IDatabase, CRUD {
     }
 
 
-
-
-
     @Override
     public boolean create(NotificationTemplate notification) throws SQLException {
-        String check = "";
         Connection connection = connectToDatabase();
         Statement stmt = connection.createStatement();
-        String sql = "SELECT subject FROM Notification_Templates WHERE id=" + notification.getID();
+       /* String sql = "SELECT subject FROM Notification_Templates WHERE id=" + notification.getID();
         ResultSet res = stmt.executeQuery(sql);
         while (res.next()) {
             check += res.getString("subject");
@@ -33,31 +31,29 @@ public class MySQLDatabase implements IDatabase, CRUD {
                 System.out.println("There is template exist with the same ID");
                 return false;
             }
-        }
+        }*/
         String insertStr = notification.toString();
-        sql = "INSERT INTO Notification_Templates(subject, body, id, language) VALUES(" + insertStr + ")";
+        String sql = "INSERT INTO Notification_Templates(subject, body, id, language) VALUES(" + insertStr + ")";
         int check2 = stmt.executeUpdate(sql);
         return check2 > 0;
     }
 
     @Override
-    public NotificationTemplate read(int id) throws SQLException {
-        NotificationTemplate ob = new NotificationTemplate();
+    public ArrayList<NotificationTemplate> read() throws SQLException {
+        ArrayList<NotificationTemplate> temps = new ArrayList<>();
         Connection connection = connectToDatabase();
         Statement stmt = connection.createStatement();
-        String sql = "SELECT * FROM Notification_Templates WHERE id=" + id;
+        String sql = "SELECT * FROM Notification_Templates";
         ResultSet res = stmt.executeQuery(sql);
-        if(res.next()){
+        while (res.next()) {
+            NotificationTemplate ob=new NotificationTemplate();
             ob.setSubject(res.getString("subject"));
             ob.setBody(res.getString("body"));
             ob.setLanguage(Language.valueOf(res.getString("language")));
-            ob.setID(id);
-        }else{
-            ob.setBody("Not found");
-            ob.setID(404);
+            ob.setID(res.getInt("id"));
+            temps.add(ob);
         }
-
-        return ob;
+        return temps;
     }
 
     @Override
