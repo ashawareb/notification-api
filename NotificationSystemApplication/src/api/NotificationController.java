@@ -49,7 +49,11 @@ public class NotificationController implements CRUD {
         System.out.println("id = "+id);
         for(int i=0;i<placeHolders.size();i++)
             System.out.println(placeHolders.get(i));
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 48cb5ca16d704eb6c4636265392c7986d5e27b96
         // Call omar's function :)
         return true;
     }
