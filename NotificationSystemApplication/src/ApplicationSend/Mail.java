@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Mail implements Isend{
-    private static LinkedList<NotificationTemplate> MailQueue=new LinkedList<NotificationTemplate>();
     @Override
     public Boolean Send(int id, ArrayList<String> placeHolders) throws SQLException {
         Connection connection = DB.connectToDatabase();
@@ -28,11 +27,5 @@ public class Mail implements Isend{
                 +"\""+placeHolders.get(placeHolders.size()-1)+"\","+"\""+placeHolders.get(0)+"\","+ rand+')';
         int in = stmt.executeUpdate(sql);
         return rand>0;
-        /*MailQueue.add(notification);
-        Connection connection = DB.connectToDatabase();
-        Statement stmt = connection.createStatement();
-        String sql = "INSERT INTO mail values("+notification.toString()+",\""+receiver+"\",\""+sender+"\","+true+')';
-        int res = stmt.executeUpdate(sql);
-        return true;*/
     }
 }
