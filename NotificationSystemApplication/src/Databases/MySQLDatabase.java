@@ -13,8 +13,6 @@ import java.util.ArrayList;
 @Qualifier("CRUD")
 public class MySQLDatabase implements IDatabase, CRUD {
 
-    //Apply Singleton Pattern
-
     public MySQLDatabase() {
     }
 
@@ -23,15 +21,6 @@ public class MySQLDatabase implements IDatabase, CRUD {
     public boolean create(NotificationTemplate notification) throws SQLException {
         Connection connection = connectToDatabase();
         Statement stmt = connection.createStatement();
-       /* String sql = "SELECT subject FROM Notification_Templates WHERE id=" + notification.getID();
-        ResultSet res = stmt.executeQuery(sql);
-        while (res.next()) {
-            check += res.getString("subject");
-            if (!check.equals("")) {
-                System.out.println("There is template exist with the same ID");
-                return false;
-            }
-        }*/
         String insertStr = notification.toString();
         String sql = "INSERT INTO Notification_Templates(subject, body, language) VALUES(" + insertStr + ")";
         System.out.println(insertStr+"\n"+sql);
