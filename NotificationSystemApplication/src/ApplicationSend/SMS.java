@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class SMS implements Isend{
-    private static LinkedList<NotificationTemplate> SMSQueue=new LinkedList<NotificationTemplate>();
     @Override
     public Boolean Send(int id, ArrayList<String> placeHolders) throws SQLException {
         Connection connection = DB.connectToDatabase();
@@ -27,10 +26,5 @@ public class SMS implements Isend{
                 +"\""+placeHolders.get(placeHolders.size()-1)+"\","+"\""+placeHolders.get(0)+"\","+ rand+')';
         int in = stmt.executeUpdate(sql);
         return rand>0;
-        /*SMSQueue.add(notification);
-        Connection connection = DB.connectToDatabase();
-        Statement stmt = connection.createStatement();
-        String sql = "INSERT INTO sms values("+notification.toString()+",\""+receiver+"\",\""+sender+"\","+true+')';
-        int res = stmt.executeUpdate(sql);*/
     }
 }
